@@ -4,4 +4,4 @@ This python program takes in a 4 column csv where the first column is a timestam
 
 # Here is the photo of my program running!
 
-[Alt text](smoker_rabbit.PNG)
+![Alt text](smoker_rabbit.PNG)

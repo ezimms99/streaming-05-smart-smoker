@@ -106,10 +106,11 @@ def csv_processor(input_file):
 if __name__ == "__main__":
     # ask the user if they'd like to open the RabbitMQ Admin site
     offer_rabbitmq_admin_site(True)
+    
     #Be sure to delete the queues so we do not overload
     delete_queue("localhost", "smoker-1")
     delete_queue("localhost", "smoker-2")
     delete_queue("localhost", "smoker-3")
 
-#Run program with our file!
-csv_processor('smoker-temps.csv')
+    #Run program with our file!
+    csv_processor('smoker-temps.csv')
