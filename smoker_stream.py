@@ -66,15 +66,15 @@ def csv_processor(input_file):
 
         reader = csv.reader(input_file, delimiter=",")
 
-        for row in reader:
+        for column in reader:
             #Skip the header!
             next(reader)
 
             #Grab all of the data from the columns
-            timemessage = f"{row[0]}"
-            smokermessage = f"{row[1]}"
-            foodAtempmessage = f"{row[2]}"
-            foodBtempmessage = f"{row[3]}"
+            timemessage = f"{column[0]}"
+            smokermessage = f"{column[1]}"
+            foodAtempmessage = f"{column[2]}"
+            foodBtempmessage = f"{column[3]}"
 
             #Creating the fstring tuples
             timesmokermessage = f"{timemessage},{smokermessage}"
@@ -106,7 +106,7 @@ def csv_processor(input_file):
 if __name__ == "__main__":
     # ask the user if they'd like to open the RabbitMQ Admin site
     offer_rabbitmq_admin_site(True)
-    
+
     #Be sure to delete the queues so we do not overload
     delete_queue("localhost", "smoker-1")
     delete_queue("localhost", "smoker-2")
