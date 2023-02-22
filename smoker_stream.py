@@ -65,10 +65,9 @@ def csv_processor(input_file):
     with open(input_file, 'r') as input_file:
 
         reader = csv.reader(input_file, delimiter=",")
-
+        #Skip the header!
+        next(reader)
         for column in reader:
-            #Skip the header!
-            next(reader)
 
             #Grab all of the data from the columns
             timemessage = f"{column[0]}"
@@ -92,7 +91,7 @@ def csv_processor(input_file):
             send_message("localhost", "03-food-B", timefoodBmessage)
 
     # sleep for a few seconds
-    time.sleep(10)
+    time.sleep(30)
 
     #Close the file
     input_file.close
@@ -108,9 +107,9 @@ if __name__ == "__main__":
     offer_rabbitmq_admin_site(True)
 
     #Be sure to delete the queues so we do not overload
-    delete_queue("localhost", "smoker-1")
-    delete_queue("localhost", "smoker-2")
-    delete_queue("localhost", "smoker-3")
+    delete_queue("localhost", "01-smoker")
+    delete_queue("localhost", "02-food-A")
+    delete_queue("localhost", "03-food-B")
 
     #Run program with our file!
     csv_processor('smoker-temps.csv')
